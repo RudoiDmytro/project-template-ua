@@ -11,8 +11,13 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
+    "compile": "sass src/scss:src/dist",
+    "watch": "sass src/scss:src/dist -w",
     "start": "live-server src",
-    "compile": "sass src/scss:src/dist"
+    "build": "echo \"Dummy build script\"",
+    "lint": "npm run lint:style && npm run lint:js",
+    "lint:js": "eslint \"src/**/*.js\" && echo JavaScript is clean. No style errors.",
+    "lint:style": "stylelint \"src/**/*.scss\" && echo Scss is clean. No style errors."
   },
   "dependencies": {
     "live-server": "^1.2.2",

@@ -508,14 +508,49 @@ p {
     margin-bottom: $spacing-xl;
   }
 
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: $spacing-xl;
-  }
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    
+    .carousel-container {
+      display: flex;
+      overflow: hidden;
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+      );
+    }
 
-  .product-card .add-to-cart-button {
-    display: none;
+    .carousel-track {
+      display: flex;
+      flex-shrink: 0;
+      animation-name: scroll;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .carousel-wrapper:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+      
+      to {
+        transform: translateX(var(--scroll-end));
+      }
+    }
+
+    .carousel-track .product-card {
+      flex: 0 0 300px;
+      width: 300px;
+      padding: 0 $spacing-md;
+    }
   }
 }
 

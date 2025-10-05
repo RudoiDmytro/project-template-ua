@@ -1710,13 +1710,37 @@ p {
   font-size: 2.25rem;
   margin-bottom: 3rem;
 }
-.products-section .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
+.products-section .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
 }
-.products-section .product-card .add-to-cart-button {
-  display: none;
+.products-section .carousel-wrapper .carousel-container {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+.products-section .carousel-wrapper .carousel-track {
+  display: flex;
+  flex-shrink: 0;
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.products-section .carousel-wrapper .carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--scroll-end));
+  }
+}
+.products-section .carousel-wrapper .carousel-track .product-card {
+  flex: 0 0 300px;
+  width: 300px;
+  padding: 0 1rem;
 }
 
 .contact-info-section {

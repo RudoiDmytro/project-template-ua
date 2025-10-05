@@ -28,36 +28,36 @@ function attachReviewFormListeners() {
 
   // --- Star Rating Logic ---
   const setStars = (rating) => {
-    stars.forEach((s) => {
-      s.classList.toggle("fas", parseInt(s.dataset.value) <= rating);
-      s.classList.toggle("far", parseInt(s.dataset.value) > rating);
-    });
+    for (let s of stars) {
+      s.classList.toggle("fas", Number.parseInt(s.dataset.value) <= rating);
+      s.classList.toggle("far", Number.parseInt(s.dataset.value) > rating);
+    }
   };
-  stars.forEach((star) => {
+
+  for (let star of stars) {
     star.addEventListener("mouseover", () =>
-      setStars(parseInt(star.dataset.value))
+      setStars(Number.parseInt(star.dataset.value))
     );
     star.addEventListener("mouseout", () => setStars(currentRating));
     star.addEventListener("click", () => {
-      currentRating = parseInt(star.dataset.value);
+      currentRating = Number.parseInt(star.dataset.value);
       ratingValueInput.value = currentRating;
       hideError(starRatingInput);
     });
-  });
+  }
 
   // --- Real-time Input Validation ---
-  requiredInputs.forEach((input) => {
+  for (let input of requiredInputs)
     input.addEventListener("input", () => {
       if (input.value.trim() !== "") hideError(input);
     });
-  });
 
   // --- Form Submission Logic ---
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     let isFormValid = true;
 
-    requiredInputs.forEach((input) => {
+    for (let input of requiredInputs) {
       if (input.value.trim() === "") {
         showError(input, "This field is required.");
         isFormValid = false;
@@ -70,7 +70,7 @@ function attachReviewFormListeners() {
       } else {
         hideError(input);
       }
-    });
+    }
 
     if (ratingValueInput.value === "0") {
       showError(starRatingInput, "Please select a rating.");
@@ -90,10 +90,10 @@ function attachReviewFormListeners() {
 function attachProductPageListeners(product) {
   const quantityValue = document.getElementById("quantity-value");
   document.getElementById("increase-quantity").addEventListener("click", () => {
-    quantityValue.textContent = parseInt(quantityValue.textContent) + 1;
+    quantityValue.textContent = Number.parseInt(quantityValue.textContent) + 1;
   });
   document.getElementById("decrease-quantity").addEventListener("click", () => {
-    let currentVal = parseInt(quantityValue.textContent);
+    let currentVal = Number.parseInt(quantityValue.textContent);
     if (currentVal > 1) {
       quantityValue.textContent = currentVal - 1;
     }
@@ -103,7 +103,7 @@ function attachProductPageListeners(product) {
   document
     .getElementById("add-to-cart-details")
     .addEventListener("click", () => {
-      const quantity = parseInt(quantityValue.textContent);
+      const quantity = Number.parseInt(quantityValue.textContent);
       addToCart(product, quantity);
       button.textContent = "Added!";
       button.disabled = true;
@@ -115,27 +115,27 @@ function attachProductPageListeners(product) {
   // Tab functionality
   const tabLinks = document.querySelectorAll(".tab-link");
   const tabContents = document.querySelectorAll(".tab-content");
-  tabLinks.forEach((link) => {
+  for (let link of tabLinks) {
     link.addEventListener("click", () => {
-      tabLinks.forEach((l) => l.classList.remove("active"));
-      tabContents.forEach((c) => c.classList.remove("active"));
+      for (let l of tabLinks) l.classList.remove("active");
+      for (let c of tabContents) c.classList.remove("active");
 
       link.classList.add("active");
       document.getElementById(link.dataset.tab).classList.add("active");
     });
-  });
+  }
 
   const mainImage = document.getElementById("main-product-image");
   const thumbnails = document.querySelectorAll(".thumbnail");
 
-  thumbnails.forEach((thumb) => {
+  for (let thumb of thumbnails) {
     thumb.addEventListener("click", () => {
       mainImage.src = thumb.src;
 
-      thumbnails.forEach((t) => t.classList.remove("active"));
+      for (let t of thumbnails) t.classList.remove("active");
       thumb.classList.add("active");
     });
-  });
+  }
 
   if (typeof attachAddToCartListeners === "function") {
     attachAddToCartListeners();
@@ -367,7 +367,7 @@ function renderProductDetails(product, allProducts) {
 
 export default async function initializeProductDetailsPage() {
   const mainContent = document.getElementById("product-details-page");
-  const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(globalThis.location.search);
   const productId = params.get("id");
 
   if (!productId) {

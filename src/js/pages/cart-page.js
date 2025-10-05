@@ -25,7 +25,7 @@ function attachCartEventListeners() {
 
     if (target.matches(".quantity-btn, .quantity-btn *")) {
       const id = itemRow.dataset.id;
-      let quantity = parseInt(
+      let quantity = Number.parseInt(
         itemRow.querySelector(".quantity-value").textContent
       );
       if (target.dataset.action === "increase") quantity++;

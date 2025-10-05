@@ -36,16 +36,15 @@ export default function initializeContactPage() {
     return true;
   };
 
-  requiredInputs.forEach((input) => {
+  for (let input of requiredInputs)
     input.addEventListener("input", () => validateInput(input));
-  });
 
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     let isFormValid = true;
-    requiredInputs.forEach((input) => {
+
+    for (let input of requiredInputs)
       if (!validateInput(input)) isFormValid = false;
-    });
 
     formStatus.textContent = "";
     if (isFormValid) {

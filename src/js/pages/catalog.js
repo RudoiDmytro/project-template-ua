@@ -11,7 +11,7 @@ const FilterComponent = (function () {
   const categoryFilter = document.getElementById("category-filter");
   const salesFilter = document.getElementById("sales-filter");
 
-  let onFilterChangeCallback = () => {}; 
+  let onFilterChangeCallback = () => {};
 
   function populateDropdowns(products) {
     const categories = [...new Set(products.map((p) => p.category))];
@@ -20,7 +20,7 @@ const FilterComponent = (function () {
       ...new Set(
         products.flatMap((p) => p.size.split(",").map((s) => s.trim()))
       ),
-    ].sort();
+    ].sort((a, b) => a.size - b.size);
 
     categoryFilter.innerHTML += categories
       .map(
@@ -44,11 +44,11 @@ const FilterComponent = (function () {
   }
 
   function updateVisualHighlights() {
-    [sizeFilter, colorFilter, categoryFilter].forEach((select) => {
+    for (let select of [sizeFilter, colorFilter, categoryFilter])
       select
         .closest(".filter-group")
         .classList.toggle("filter-active", !!select.value);
-    });
+
     salesFilter
       .closest(".filter-group")
       .classList.toggle("filter-active", salesFilter.checked);
@@ -76,9 +76,8 @@ const FilterComponent = (function () {
     );
     clearFiltersBtn.addEventListener("click", clearFilters);
 
-    [sizeFilter, colorFilter, categoryFilter, salesFilter].forEach((el) => {
+    for (let el of [sizeFilter, colorFilter, categoryFilter, salesFilter])
       el.addEventListener("change", handleFilterChange);
-    });
   }
 
   return {
@@ -177,7 +176,7 @@ function renderPagination(totalProducts) {
 
 function applyFiltersAndSort() {
   let processedProducts = allProducts;
-  const currentFilters = FilterComponent.getFilters(); 
+  const currentFilters = FilterComponent.getFilters();
 
   if (state.query) {
     processedProducts = processedProducts.filter((p) =>
@@ -287,9 +286,9 @@ function addEventListeners() {
     e.preventDefault();
     const link = e.target.closest(".page-link");
     if (link && !link.classList.contains("disabled")) {
-      state.currentPage = parseInt(link.dataset.page);
+      state.currentPage = Number.parseInt(link.dataset.page);
       render();
-      window.scrollTo(0, 0);
+      globalThis.scrollTo(0, 0);
     }
   });
 }

@@ -48,7 +48,7 @@ npm -v
 1.  **Clone the repository** (or download the source code)
 
 2.  **Install project dependencies:**
-    This project uses `sass` for compiling SCSS to CSS, and `serve` for running a local development server. These are listed as `devDependencies` in `package.json`. Install them by running:
+    This project uses `sass` for compiling SCSS to CSS, and `live-server` for running a local development server. These are listed as `devDependencies` in `package.json`. Install them by running:
     ```sh
     npm install
     ```

@@ -5,14 +5,15 @@ import { addToCart } from "./cart.js";
  */
 export function attachAddToCartListeners() {
   const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-  addToCartButtons.forEach((button) => {
+
+  for (let button of addToCartButtons) {
     if (button.dataset.listenerAttached) return;
 
     button.addEventListener("click", (event) => {
       const product = {
         id: event.currentTarget.dataset.id,
         name: event.currentTarget.dataset.name,
-        price: parseFloat(event.currentTarget.dataset.price),
+        price: Number.parseFloat(event.currentTarget.dataset.price),
         imageUrl: event.currentTarget.dataset.image,
       };
       addToCart(product);
@@ -26,7 +27,7 @@ export function attachAddToCartListeners() {
       }, 1500);
     });
     button.dataset.listenerAttached = "true";
-  });
+  }
 }
 
 /**
@@ -55,7 +56,7 @@ export function initializeModal() {
       if (loginModal) loginModal.style.display = "none";
     });
   }
-  window.addEventListener("click", (event) => {
+  globalThis.addEventListener("click", (event) => {
     if (event.target == loginModal) {
       loginModal.style.display = "none";
     }
@@ -88,20 +89,20 @@ export function initializeModal() {
       event.preventDefault();
       let isValid = true;
 
-      if (!loginEmail.validity.valid) {
+      if (loginEmail.validity.valid) {
+        emailError.textContent = "";
+      } else {
         emailError.textContent = loginEmail.validity.typeMismatch
           ? "Please enter a valid email address."
           : "Email is required.";
         isValid = false;
-      } else {
-        emailError.textContent = "";
       }
 
-      if (!loginPassword.value.trim()) {
+      if (loginPassword.value.trim()) {
+        passwordError.textContent = "";
+      } else {
         passwordError.textContent = "Password is required.";
         isValid = false;
-      } else {
-        passwordError.textContent = "";
       }
 
       if (isValid) {
@@ -114,7 +115,7 @@ export function initializeModal() {
     });
   }
 
-  togglePasswordButtons.forEach((button) => {
+  for (let button of togglePasswordButtons) {
     button.addEventListener("click", () => {
       const targetId = button.dataset.target;
       const passwordInput = document.getElementById(targetId);
@@ -130,5 +131,5 @@ export function initializeModal() {
         icon.classList.add("fa-eye");
       }
     });
-  });
+  }
 }
