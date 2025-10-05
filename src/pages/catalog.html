@@ -49,32 +49,32 @@
                         </div>
                         <div class="filter-group filter-group-toggle">
                             <label for="sales-filter">Sales</label>
-                            <label class="switch" for="sales-filter">
+                            <label class="switch" for="sales-filter" aria-label="Toggle Sales Filter">
                                 <input type="checkbox" id="sales-filter" name="salesStatus">
                                 <span class="slider round"></span>
                             </label>
-                        </div>
-                    </div>
-                    <div class="filter-actions">
-                        <button id="clear-filters-btn" class="button primary">CLEAR FILTERS</button>
-                        <button id="hide-filters-btn" class="button primary">HIDE FILTERS</button>
                     </div>
                 </div>
-
-                <div class="product-grid" id="catalog-product-grid">
-                    <!-- Products will be loaded here -->
+                <div class="filter-actions">
+                    <button id="clear-filters-btn" class="button primary">CLEAR FILTERS</button>
+                    <button id="hide-filters-btn" class="button primary">HIDE FILTERS</button>
                 </div>
+            </div>
 
-                <div id="product-not-found" class="not-found-message" style="display: none;">
-                    <h2>Product not found</h2>
-                    <p>Sorry, we couldn't find any products matching your search or filters.</p>
-                </div>
+            <div class="product-grid" id="catalog-product-grid">
+                <!-- Products will be loaded here -->
+            </div>
 
-                <nav class="pagination-nav">
-                    <ul id="pagination-controls" class="pagination">
-                        <!-- Pagination links will be generated here -->
-                    </ul>
-                </nav>
+            <div id="product-not-found" class="not-found-message" style="display: none;">
+                <h2>Product not found</h2>
+                <p>Sorry, we couldn't find any products matching your search or filters.</p>
+            </div>
+
+            <nav class="pagination-nav">
+                <ul id="pagination-controls" class="pagination">
+                    <!-- Pagination links will be generated here -->
+                </ul>
+            </nav>
             </div>
             <aside class="catalog-sidebar">
                 <div class="sidebar-widget">

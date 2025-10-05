@@ -261,7 +261,7 @@ function renderProductDetails(product, allProducts) {
                                     </div>
                                 </div>
                                 <div class="review-rating">${generateStars(
-                                  4.0
+                                  4
                                 )}</div>
                                 <p class="review-body">Proin iaculis nibh vitae lectus mollis bibendum. Quisque varius eget urna sit amet luctus. Suspendisse potenti curabitur ac placerat est, sit amet sodales risus.</p>
                             </div>
