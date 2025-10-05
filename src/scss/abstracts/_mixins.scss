@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin transition(
+  $property: all,
+  $duration: $transition-speed,
+  $timing: $transition-timing
+) {
+  transition: $property $duration $timing;
+}
+
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+}

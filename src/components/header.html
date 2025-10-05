@@ -1,0 +1,71 @@
+<header class="site-header container">
+    <div class="header-main">
+        <div class="container">
+            <div class="social-icons">
+                <button class="icon-button">
+                    <a href=" #" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                </button>
+                <button class="icon-button">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </button>
+                <button class="icon-button">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </button>
+            </div>
+            <a href="/index.html" class="logo">
+                <img src="/assets/logo-icon.png" alt="Best Shop Bag Icon">
+                <span>BEST SHOP</span>
+            </a>
+            <div class="header-actions">
+                <button class="icon-button account-icon" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="/pages/cart.html" class="icon-button cart-icon" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav-wrapper">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/catalog.html">Catalog <i class="fas fa-chevron-down"></i></a></li>
+                    <li><a href="/pages/about.html">About Us</a></li>
+                    <li><a href="/pages/contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Log In</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group password-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <span class="toggle-password" data-target="loginPassword"><i class="fas fa-eye"></i></span>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Your Password?</a>
+            </div>
+            <button type="submit" class="button primary full-width">Log in</button>
+        </form>
+    </div>
+</div>

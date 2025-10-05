@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Best Shop</title>
+  <link rel="stylesheet" href="../dist/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="page-hero" style="background-image: url('../assets/contact-hero-bg.png');">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Duis rutrum non risus in imperdiet. Proin molestie accumsan nulla.</p>
+      </div>
+    </section>
+
+    <section class="contact-info-section">
+      <div class="container info-grid">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Our Location</h3>
+          <p>1234 NW Bobcat Lane, St. Robert, MO 65584-567B</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <h3>Operating Time</h3>
+          <p>Monday - Friday: 9am - 6pm<br>Weekends: 10:30 am - 6pm</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <h3>Our Email</h3>
+          <p>best@shop.com<br>info@bestshop.com</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone-alt"></i>
+          <h3>Call Us</h3>
+          <p>(268)142-8413<br>(760)265-2917</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="container form-grid">
+        <img class="contact-image" src="../assets/contact-form-image.png" alt="Packing a suitcase" loading="lazy">
+        <div class="form-container">
+          <h2>Your Feedback is Much Appreciated!</h2>
+          <p>We will contact you when you complete the following form!</p>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email Address *</label>
+              <input type="email" id="email" name="email" required>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="topic">Topic *</label>
+              <input type="text" id="topic" name="topic" required>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group-button">
+              <button type="submit" class="button primary">SEND</button>
+              <div id="form-status"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+    <script type="module" src="../js/main.js"></script>
+
+</body>
+
+</html>

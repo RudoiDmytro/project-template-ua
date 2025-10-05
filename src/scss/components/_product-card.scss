@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.product-card {
+  border-radius: 0;
+  overflow: hidden;
+  text-align: center;
+
+  @include transition;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: $spacing-lg;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-light;
+  }
+
+  .product-image-wrapper {
+    position: relative;
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      box-shadow: $box-shadow-light;
+    }
+
+    .product-sales-badge {
+      position: absolute;
+      top: $spacing-md;
+      left: $spacing-md;
+      background-color: $primary-color;
+      color: $background-color-white;
+      padding: $spacing-xs $spacing-sm;
+      font-size: 0.75rem;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .product-info {
+    padding: $spacing-lg $spacing-md 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-name {
+    font-size: 1.1rem;
+    font-weight: $font-weight-regular;
+    margin-bottom: $spacing-sm;
+    color: $text-color-dark;
+    font-family: $font-primary;
+  }
+
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    color: $text-color-dark;
+    margin-bottom: $spacing-md;
+  }
+
+}

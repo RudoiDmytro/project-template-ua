@@ -1,0 +1,101 @@
+.site-header {
+  background-color: #fff;
+  width: 100%;
+}
+
+.header-main {
+  padding: 1.5rem 0;
+}
+.header-main .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-main .social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.header-main .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #b92770;
+}
+.header-main .logo img {
+  background-color: #b92770;
+  border-radius: 8px;
+  height: 40px;
+}
+.header-main .header-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.header-nav-wrapper {
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 0;
+  width: 100%;
+  display: inline-block;
+}
+.header-nav-wrapper .main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header-nav-wrapper .main-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5rem;
+}
+.header-nav-wrapper .main-nav a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.header-nav-wrapper .main-nav a i {
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+.header-nav-wrapper .main-nav a.active, .header-nav-wrapper .main-nav a:hover {
+  color: #b92770;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #b92770;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+/*# sourceMappingURL=header.css.map */

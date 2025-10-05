@@ -1,0 +1,101 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.site-header {
+  background-color: $background-color-white;
+  width: 100%;
+}
+
+.header-main {
+  padding: $spacing-lg 0;
+
+  .container {
+    @include flex-center(row, space-between, center);
+  }
+
+  .social-icons {
+    @include flex-center;
+
+    gap: $spacing-lg;
+    font-size: 1.5rem;
+    color: $text-color-dark;
+
+    @include transition;
+    
+  }
+
+  .logo {
+    @include flex-center;
+
+    gap: $spacing-sm;
+    font-family: $font-primary;
+    font-size: 2rem;
+    font-weight: 900;
+    color: $primary-color;
+
+    img {
+      background-color: $primary-color;
+      border-radius: 8px;
+      height: 40px;
+    }
+  }
+
+  .header-actions {
+    @include flex-center;
+
+    gap: $spacing-lg;
+    font-size: 1.5rem;
+  }
+}
+
+.header-nav-wrapper {
+  border-top: 1px solid $border-color;
+  padding: $spacing-md 0;
+  width: 100%;
+  display: inline-block;
+  
+  .main-nav {
+    @include flex-center;
+
+    ul {
+      @include flex-center;
+
+      gap: $spacing-xl * 1.5;
+    }
+
+    a {
+      font-weight: $font-weight-bold;
+      font-size: 1.1rem;
+      color: $text-color-dark;
+
+      @include transition;
+
+      i {
+        font-size: 0.8rem;
+        margin-left: $spacing-xs;
+      }
+
+      &.active,
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.cart-counter {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: $primary-color;
+  color: $background-color-white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  @include flex-center;
+
+  display: none;
+}

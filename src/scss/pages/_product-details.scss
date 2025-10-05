@@ -1,0 +1,297 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.product-details-section {
+  padding: $spacing-xl 0;
+}
+
+.product-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: $spacing-xl * 2;
+  align-items: start;
+
+  @include breakpoint(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-gallery {
+  .main-image {
+    width: 100%;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-md;
+  }
+
+  .thumbnail-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+
+    .thumbnail {
+      border-radius: $border-radius-sm;
+      cursor: pointer;
+      border: 2px solid transparent;
+
+      @include transition;
+
+      &.active,
+      &:hover {
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+.product-info-main {
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-md;
+  }
+
+  .product-meta-details {
+    @include flex-center(row, flex-start, center);
+
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    font-size: 1.25rem;
+
+    .price {
+      color: $primary-color;
+      font-weight: $font-weight-bold;
+    }
+
+    .rating {
+      color: #ffc107;
+    }
+  }
+
+  .description {
+    margin-bottom: $spacing-xl;
+  }
+
+  .product-options {
+    @include flex-center(row, flex-start, center);
+
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+
+    select {
+      padding: $spacing-sm;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  .product-actions {
+    @include flex-center(row, flex-start, center);
+
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+
+    .add-to-cart-button {
+      padding: $spacing-md $spacing-xl;
+    }
+  }
+
+  .payment-methods i {
+    font-size: 1.5rem;
+    margin: 0 $spacing-xs;
+  }
+}
+
+.product-tabs-section {
+  padding: $spacing-xl 0;
+  background-color: $background-color-light;
+
+  .tab-nav {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $spacing-xl;
+
+    .tab-link {
+      background: none;
+      border: none;
+      padding: $spacing-md $spacing-lg;
+      font-size: 1.1rem;
+      font-weight: $font-weight-bold;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+
+      @include transition;
+
+      &.active,
+      &:hover {
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.you-may-also-like {
+  padding: $spacing-xl 0;
+}
+
+#reviews {
+  .reviews-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl * 2.5;
+
+    @include breakpoint(lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl * 2;
+    }
+  }
+
+  h3 {
+    font-family: $font-primary;
+    font-weight: $font-weight-bold;
+    font-size: 1.25rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  .review-item {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: $spacing-lg;
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .review-header {
+    @include flex-center(row, flex-start, center);
+
+    gap: $spacing-md;
+    margin-bottom: $spacing-sm;
+  }
+
+  .review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .review-author {
+    font-weight: $font-weight-bold;
+  }
+
+  .review-date {
+    color: $text-color-light;
+    font-size: 0.9rem;
+  }
+
+  .review-rating {
+    color: #ffc107;
+    margin-bottom: $spacing-md;
+  }
+
+  .review-body {
+    color: $text-color-light;
+  }
+
+  .review-form {
+    .form-note {
+      font-size: 0.9rem;
+      color: $text-color-light;
+      margin-bottom: $spacing-md;
+    }
+
+    .form-group {
+      margin-bottom: $spacing-lg;
+
+      label {
+        font-weight: $font-weight-bold;
+        display: block;
+        margin-bottom: $spacing-xs;
+      }
+    }
+
+    .error-message {
+      color: $primary-color;
+      font-size: 0.875rem;
+      margin-top: $spacing-xs;
+      min-height: 1em;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: $spacing-md;
+      border: 2px solid $primary-color;
+      border-radius: $border-radius-sm;
+      background-color: transparent;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba($primary-color, 0.3);
+      }
+    }
+
+    &.has-error {
+      textarea,
+      input[type="text"],
+      input[type="email"] {
+        border-color: $primary-color;
+      }
+
+      label {
+        color: $primary-color;
+      }
+    }
+
+    .rating-group {
+      @include flex-center(row, flex-start, center);
+
+      gap: $spacing-md;
+    }
+
+    .star-rating-input {
+      cursor: pointer;
+
+      i {
+        font-size: 1.25rem;
+        color: #ffc107;
+
+        @include transition;
+      }
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-lg;
+
+      @include breakpoint(sm) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .checkbox-group {
+      @include flex-center(row, flex-start, center);
+
+      gap: $spacing-sm;
+
+      label {
+        margin: 0;
+        font-weight: $font-weight-regular;
+        color: $text-color-light;
+      }
+    }
+
+    .button {
+      text-transform: uppercase;
+    }
+  }
+}

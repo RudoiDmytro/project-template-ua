@@ -1,0 +1,179 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.site-footer {
+  font-size: 0.9rem;
+}
+
+.benefits-section {
+  position: relative;
+  background-color: #504e4a;
+  width: 100%;
+  height: 350px;
+  color: $background-color-white;
+  padding: $spacing-xl * 2 0;
+  text-align: start;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.2;
+    background-image: url("../assets/wavy-grid-pattern.svg");
+    background-size: contain;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .benefits-title {
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    margin-bottom: $spacing-xl;
+    color: $background-color-white;
+    font-weight: $font-weight-bold;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .benefit-item {
+    @include flex-center(row, center, center);
+
+    gap: $spacing-md;
+    text-align: left;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  p {
+    padding-top: $spacing-sm;
+    color: $text-color-white;
+    font-size: 0.94rem;
+  }
+}
+
+.main-footer {
+  background-color: $background-color-white;
+  padding: $spacing-xl * 2.5 0;
+  color: $text-color-dark;
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 3fr;
+    gap: $spacing-lg $spacing-xl;
+    grid-template-areas:
+      "about links achieve . contact"
+      "shipping shipping shipping . contact";
+
+    @include breakpoint(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-xl;
+      grid-template-areas:
+        "about links"
+        "achieve contact"
+        "shipping shipping";
+    }
+
+    @include breakpoint(sm) {
+      text-align: center;
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+      grid-template-areas: "about" "links" "achieve" "shipping" "contact";
+    }
+  }
+
+  #col-about {
+    grid-area: about;
+  }
+
+  #col-links {
+    grid-area: links;
+  }
+
+  #col-achieve {
+    grid-area: achieve;
+  }
+
+  #col-contact {
+    grid-area: contact;
+  }
+
+  #col-shipping {
+    grid-area: shipping;
+  }
+
+  .footer-title {
+    font-weight: $font-weight-bold;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  .footer-col {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    a,
+    p {
+      color: $text-color-light;
+      line-height: $line-height-base;
+    }
+
+    a:hover {
+      color: $primary-color;
+    }
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md $spacing-sm;
+    margin-top: 20%;
+  }
+
+  .contact-item {
+    align-items: center;
+    gap: $spacing-md;
+
+    span {
+      color: $text-color-light;
+      line-height: 1.6;
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: $background-color-white;
+  padding: $spacing-lg 0;
+  text-align: center;
+  color: color.scale($text-color-light, $lightness: 25%);
+  font-size: 0.875rem;
+}

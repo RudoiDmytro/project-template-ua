@@ -1,0 +1,131 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.cart-section {
+  padding: $spacing-xl 0;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-xl;
+  text-align: center;
+
+  thead {
+    background-color: #504e4a;
+    color: $background-color-white;
+
+    th {
+      padding: $spacing-md;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $border-color;
+  }
+
+  td {
+    padding: $spacing-lg $spacing-md;
+    vertical-align: middle;
+  }
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: $border-radius-sm;
+}
+
+.quantity-control {
+  @include flex-center;
+
+  gap: $spacing-md;
+
+  button {
+    background: none;
+    border: 1px solid $border-color;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+
+    @include transition;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $background-color-white;
+    }
+  }
+}
+
+.remove-item-btn {
+  color: $text-color-light;
+  font-size: 1.25rem;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.cart-actions {
+  @include flex-center(row, space-between, center);
+
+  margin-bottom: $spacing-xl;
+}
+
+.cart-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  align-items: start;
+
+  @include breakpoint(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-totals {
+  background: #504e4a;
+  padding: $spacing-xl;
+  border-radius: $border-radius-md;
+  grid-column: 2 / 3;
+  color: $background-color-white;
+
+  .total-row {
+    @include flex-center(row, space-between, center);
+
+    padding: $spacing-md 0;
+    border-bottom: 1px solid $border-color;
+    font-weight: $font-weight-bold;
+
+    &.grand-total {
+      font-size: 1.25rem;
+      font-weight: $font-weight-bold;
+      border-bottom: none;
+    }
+  }
+
+  .checkout-btn {
+    width: 100%;
+    margin-top: $spacing-lg;
+    padding: $spacing-md;
+    font-size: 1.1rem;
+  }
+}
+
+.cart-empty-message {
+  text-align: center;
+  padding: $spacing-xl * 2 0;
+
+  h2 {
+    margin-bottom: $spacing-md;
+  }
+
+  a {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,118 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0 0 0 / 60%);
+
+  .modal-content {
+    background-color: $background-color-white;
+    margin: 10% auto;
+    padding: $spacing-xl;
+    border-radius: $border-radius-md;
+    max-width: 500px;
+    position: relative;
+    box-shadow: $box-shadow-hover;
+  }
+
+  .close-button {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-lg;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $text-color-light;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-color-dark;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-lg;
+  }
+
+  label {
+    display: block;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-bold;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-sm;
+  }
+
+  .password-group {
+    position: relative;
+  }
+
+  .form-options {
+    @include flex-center(row, space-between, center);
+
+    margin-bottom: $spacing-lg * 1.5;
+    font-size: 0.9rem;
+  }
+
+  .remember-me {
+    @include flex-center(row, flex-start, center);
+
+    gap: $spacing-sm;
+    font-weight: $font-weight-regular;
+    color: $text-color-light;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 75%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: $text-color-light;
+  }
+
+  .forgot-password {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .button.primary.full-width {
+    width: 100%;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+
+  .error-message {
+    color: $primary-color;
+    font-size: 0.875rem;
+    margin-top: $spacing-xs;
+  }
+}
