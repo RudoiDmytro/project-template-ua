@@ -1,101 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog - Best Shop</title>
-    <link rel="stylesheet" href="../dist/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<body>
-    <div id="header-placeholder"></div>
-
-    <main>
-        <section class="catalog-section container">
-
-            <div class="catalog-main">
-                <div class="catalog-header">
-                    <p id="results-count">Showing 0 of 0 results</p>
-                    <button id="toggle-filters-btn" class="button secondary">FILTERS</button>
-                    <select id="sort-by" class="sort-dropdown">
-                        <option value="popularity">Sort by popularity</option>
-                        <option value="rating">Sort by average rating</option>
-                        <option value="price-asc">Sort by price: low to high</option>
-                        <option value="price-desc">Sort by price: high to low</option>
-                    </select>
-                </div>
-
-                <div id="filter-bar" class="filter-bar">
-                    <div class="filter-options">
-                        <div class="filter-group">
-                            <label for="size-filter">Size</label>
-                            <select id="size-filter" name="size">
-                                <option value="">Choose option</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="color-filter">Color</label>
-                            <select id="color-filter" name="color">
-                                <option value="">Choose option</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="category-filter">Category</label>
-                            <select id="category-filter" name="category">
-                                <option value="">Choose option</option>
-                            </select>
-                        </div>
-                        <div class="filter-group filter-group-toggle">
-                            <label for="sales-filter">Sales</label>
-                            <label class="switch" for="sales-filter">
-                                <input type="checkbox" id="sales-filter" name="salesStatus">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
+<footer class="site-footer">
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="benefits-title">Our Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="/assets/icons/icon-plane.svg" alt="plane icon"></img>
                     </div>
-                    <div class="filter-actions">
-                        <button id="clear-filters-btn" class="button primary">CLEAR FILTERS</button>
-                        <button id="hide-filters-btn" class="button primary">HIDE FILTERS</button>
+                    <p>Velit nisl sodales eget donec quis. Volutpat orci.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="/assets/icons/icon-truck.svg" alt="truck icon"></img>
                     </div>
+                    <p>Dolor eu varius. Morbi fermentum velit nisl.</p>
                 </div>
-
-                <div class="product-grid" id="catalog-product-grid">
-                    <!-- Products will be loaded here -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="/assets/icons/icon-coins.svg" alt="coins icon"></img>
+                    </div>
+                    <p>Malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
-
-                <div id="product-not-found" class="not-found-message" style="display: none;">
-                    <h2>Product not found</h2>
-                    <p>Sorry, we couldn't find any products matching your search or filters.</p>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="/assets/icons/icon-hat.svg" alt="hat icon"></img>
+                    </div>
+                    <p>Nisl sodales eget donec quis. Volutpat orci.</p>
                 </div>
-
-                <nav class="pagination-nav">
-                    <ul id="pagination-controls" class="pagination">
-                        <!-- Pagination links will be generated here -->
-                    </ul>
-                </nav>
             </div>
-            <aside class="catalog-sidebar">
-                <div class="sidebar-widget">
-                    <form id="search-form" class="search-form">
-                        <input type="text" id="search-input" class="search-bar" placeholder="Search Models">
-                        <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Top Best Sets</h3>
-                    <div id="top-products-widget" class="top-products-list">
-                        <!-- Top products will be loaded here -->
-                    </div>
-                </div>
-            </aside>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <div id="footer-placeholder"></div>
-    <script type="module" src="../js/main.js"></script>
+    <div class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col" id="col-about">
+                <h3 class="footer-title"><a href="/pages/about.html">About Us</a></h3>
+                <ul>
+                    <li><a href="#">Organisation</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="col-links">
+                <h3 class="footer-title">Interesting Links</h3>
+                <ul>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Socials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="col-achieve">
+                <h3 class="footer-title">Achievements</h3>
+                <ul>
+                    <li><a href="#">Winning Awards</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Our Amazing Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="col-contact">
+                <h3 class="footer-title"><a href="/pages/contact.html">Contact Us</a></h3>
+                <p>Bendum dolor eu varius. Morbi fermentum velitsodales egetonec. Volutpat orci. Sed ipsum felis,
+                    tristique egestas et, convallis ac vel.</p>
+                <ul class="contact-grid">
+                    <li class="contact-item"><img src="/assets/icons/icon-1.svg" alt="phone icon"/><span> Phone: (+63) 236 6322 </span></li>
+                    <li class="contact-item"><img src="/assets/icons/icon-2.svg" alt="mail icon"/><span> public@news.com</span></li>
+                    <li class="contact-item"><img src="/assets/icons/icon-3.svg" alt="clock icon"/><span> Mon - Fri: 10am - 6pm <br> Sat - Sun: 10am - 6pm</span></li>
+                    <li class="contact-item"><img src="/assets/icons/icon-4.svg" alt="tip icon"/><span> 639 Jade Valley, Washington Dc</span></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="col-shipping">
+                <h3 class="footer-title">Shipping Information</h3>
+                <p>Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac. Ut sit amet erat nec nibh rhoncus
+                    varius in non lorem. Donec interdum, lectus in convallis pulvinar, enim elit porta sapien, vel
+                    finibus erat felis sed neque. Etiam aliquet neque sagittis erat tincidunt aliquam.</p>
+            </div>
+        </div>
+    </div>
 
-</body>
-
-</html>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; Copyright 2025</p>
+        </div>
+    </div>
+</footer>
